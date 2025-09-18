@@ -1,0 +1,62 @@
+// HW PROBLEM 4: Food Preparation Template
+
+abstract class Food {
+    // Template method
+    public final void prepare() {
+        wash();
+        cook();
+        serve();
+    }
+
+    protected abstract void wash();
+    protected abstract void cook();
+    protected abstract void serve();
+}
+
+class Pizza extends Food {
+    @Override
+    protected void wash() {
+        System.out.println("Washing vegetables and cheese for Pizza.");
+    }
+
+    @Override
+    protected void cook() {
+        System.out.println("Baking Pizza in the oven.");
+    }
+
+    @Override
+    protected void serve() {
+        System.out.println("Serving Pizza with ketchup.");
+    }
+}
+
+class Soup extends Food {
+    @Override
+    protected void wash() {
+        System.out.println("Washing vegetables for Soup.");
+    }
+
+    @Override
+    protected void cook() {
+        System.out.println("Boiling Soup with spices.");
+    }
+
+    @Override
+    protected void serve() {
+        System.out.println("Serving hot Soup in a bowl.");
+    }
+}
+
+public class FoodTest {
+    public static void main(String[] args) {
+        Food pizza = new Pizza();
+        System.out.println("--- Preparing Pizza ---");
+        pizza.prepare();
+
+        System.out.println();
+
+        Food soup = new Soup();
+        System.out.println("--- Preparing Soup ---");
+        soup.prepare();
+    }
+}
